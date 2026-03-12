@@ -2,6 +2,9 @@ name: Build LaTeX PDF
 
 on: [push]
 
+permissions:
+  contents: write
+
 jobs:
   build_latex:
     runs-on: ubuntu-latest
