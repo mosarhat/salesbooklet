@@ -1,0 +1,26 @@
+\documentclass{report}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\graphicspath{{src/images/}}
+\usepackage{mathastext}
+\usepackage{xcolor}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{mathrsfs}
+\usepackage{indentfirst} % adds automatic indent
+\usepackage{minted}
+\usemintedstyle{tango}
+\usepackage{epigraph}
+\usepackage{geometry}
+
+\geometry{a4paper, total={170mm,257mm}, left=35mm, right=35mm, top=20mm} % <-- sets better margins
+
+\renewcommand{\rmdefault}{cmtt}
+
+\begin{document}
+
+% Title Page
+\input{src/title.tex}
+
+\tableofcontents
+
+\end{document}
