@@ -13,8 +13,21 @@
 \usepackage{geometry}
 \usepackage{amsmath} 
 \usepackage[backend=biber,style=chicago-notes,autocite=footnote,refsection=chapter]{biblatex}
+\defbibheading{secbibliography}[\bibname]{%
+  \section{#1}%
+}
 \addbibresource{src/avs/avs.bib}
 \addbibresource{src/groundwork/groundwork.bib}
+\addbibresource{src/introduction/introduction.bib}
+\addbibresource{src/planning/pnr.bib}
+\addbibresource{src/leadqualification/leadqualification.bib}
+\addbibresource{src/engaging/engaging.bib}
+\addbibresource{src/discovery/discovery.bib}
+\addbibresource{src/presentation/presentation.bib}
+\addbibresource{src/handling/handling.bib}
+\addbibresource{src/closing/closing.bib}
+\addbibresource{src/aftersales/aftersales.bib}
+\addbibresource{src/positioning/positioning.bib}
 \setlength{\parskip}{0.5em}
 \setlength{\parindent}{0pt}
 \geometry{a4paper, total={170mm,257mm}, left=35mm, right=35mm, top=20mm}
@@ -25,28 +38,28 @@
 \setcounter{secnumdepth}{3}
 \begin{document}
 % Title Page
-\input{src/title.tex}
+\include{src/title/title}
 \tableofcontents
 % Introduction
-\input{src/introduction/introduction}
+\include{src/introduction/introduction}
 % AVS
-\input{src/avs/avs}
+\include{src/avs/avs}
 % GW
-\input{src/groundwork/groundwork}
+\include{src/groundwork/groundwork}
 % PnR
-\input{src/planning/pnr}
+\include{src/planning/pnr}
 % Lead Qualification
-\input{src/leadqualification/leadqualification}
+\include{src/leadqualification/leadqualification}
 % Engaging
-\input{src/engaging}
+\include{src/engaging/engaging}
 % Discovery
-\input{src/discovery}
+\include{src/discovery/discovery}
 % Demoing
-\input{src/presentation}
+\include{src/presentation/presentation}
 % Handling Objections
-\input{src/handlingnevaluation}
+\include{src/handling/handling}
 % Closing
-\input{src/closing}
+\include{src/closing/closing}
 % After-Sales
-\input{src/aftersales}
+\include{src/aftersales/aftersales}
 \end{document}
