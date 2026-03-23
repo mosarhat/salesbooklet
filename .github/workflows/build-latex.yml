@@ -13,22 +13,35 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-        # This is mainly done twice because LaTex only outputs TOC on two runs. The first run reads, the second compiles.
-      - name: First LaTeX Pass
+      - name: First LaTeX Pass (pdflatex)
         uses: dante-ev/latex-action@latest
         with:
           root_file: main.tex
           compiler: pdflatex
           args: -interaction=nonstopmode
 
-      - name: Second LaTeX Pass
+      - name: Biber Pass (resolve biblatex references)
+        uses: dante-ev/latex-action@latest
+        with:
+          root_file: main
+          compiler: biber
+          args: ""
+
+      - name: Second LaTeX Pass (pdflatex)
         uses: dante-ev/latex-action@latest
         with:
           root_file: main.tex
           compiler: pdflatex
           args: -interaction=nonstopmode
 
-      - name: Move and Rename PDF (non-fatal)
+      - name: Third LaTeX Pass (resolve TOC + cross-refs)
+        uses: dante-ev/latex-action@latest
+        with:
+          root_file: main.tex
+          compiler: pdflatex
+          args: -interaction=nonstopmode
+
+      - name: Move and Rename PDF
         run: mv main.pdf document.pdf
 
       - name: Commit and Push PDF
